@@ -1,4 +1,4 @@
-package com.globant.weatherapp.mvp.view
+package com.globant.weatherapp.mvp.view.base
 
 import android.app.Activity
 import android.content.Context
