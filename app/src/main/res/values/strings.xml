@@ -1,22 +1,6 @@
 <resources>
     <string name="app_name">WeatherApp</string>
     <string name="welcome_text">Welcome to Weather App</string>
-    <string name="select_country_text_view">Select a Country</string>
-    <string name="select_city_text_view">Select a City</string>
-
-    <string-array name="country_array">
-        <item>Argentina</item>
-        <item>Colombia</item>
-        <item>Brazil</item>
-        <item>Peru</item>
-        <item>Uruguay</item>
-    </string-array>
-
-    <string-array name="city_array">
-        <item>Buenos Aires</item>
-        <item>La Plata</item>
-        <item>Tandil</item>
-        <item>Necochea</item>
-        <item>Mar del Plata</item>
-    </string-array>
+    <string name="select_city_text_view">Please insert a city</string>
+    <string name="text_search_button">Search</string>
 </resources>

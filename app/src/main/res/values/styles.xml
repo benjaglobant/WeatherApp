@@ -8,20 +8,29 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="selection_text_view_style">
-        <item name="android:textSize">@dimen/text_size_selection_24sp</item>
-        <item name="android:gravity">left</item>
-        <item name="android:layout_marginLeft">@dimen/margin_left_10dp</item>
-        <item name="android:textColor">@color/dark_green_color</item>
+    <style name="common_text_font">
         <item name="fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="welcome_text">
+    <style name="welcome_text" parent="common_text_font">
         <item name="android:textSize">@dimen/text_size_welcome_text</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/dark_green_color</item>
-        <item name="fontFamily">sans-serif</item>
-        <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="selection_text_view_style" parent="common_text_font">
+        <item name="android:textSize">@dimen/text_size_select_text_view</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginStart">@dimen/margin_start_text_view</item>
+    </style>
+
+    <style name="search_button_style" parent="common_text_font">
+        <item name="android:background">@color/dark_green_color</item>
+        <item name="android:textColor">@color/light_green_color</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_search_button</item>
+        <item name="android:textSize">@dimen/text_size_search_button</item>
+        <item name="android:padding">@dimen/padding_search_button</item>
+    </style>
+
 </resources>

@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="margin_top_welcome_text_view">8dp</dimen>
     <dimen name="text_size_welcome_text">34sp</dimen>
-    <dimen name="margin_top_35dp">35dp</dimen>
-    <dimen name="margin_top_18dp">18dp</dimen>
-    <dimen name="margin_left_10dp">10dp</dimen>
-    <dimen name="text_size_selection_24sp">24sp</dimen>
+    <dimen name="margin_top_select_text_view">35dp</dimen>
+    <dimen name="margin_top_image_view">30dp</dimen>
+    <dimen name="margin_top_autocomplete_text_view">18dp</dimen>
+    <dimen name="margin_start_text_view">10dp</dimen>
+    <dimen name="text_size_select_text_view">24sp</dimen>
+    <dimen name="padding_autocomplete_text_view">5dp</dimen>
+    <dimen name="margin_end_autocomplete_text_view">10dp</dimen>
+    <dimen name="margin_top_search_button">30dp</dimen>
+    <dimen name="text_size_search_button">24sp</dimen>
+    <dimen name="padding_search_button">10dp</dimen>
 </resources>
