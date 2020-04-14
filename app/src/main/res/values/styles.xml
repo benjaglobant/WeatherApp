@@ -13,19 +13,31 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="welcome_text" parent="common_text_font">
+    <style name="style_text_view_welcome" parent="common_text_font">
         <item name="android:textSize">@dimen/text_size_welcome_text</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/dark_green_color</item>
     </style>
 
-    <style name="selection_text_view_style" parent="common_text_font">
+    <style name="style_text_view_insert" parent="common_text_font">
+        <item name="android:layout_marginTop">@dimen/margin_top_select_text_view</item>
+        <item name="android:textColor">@color/dark_green_color</item>
         <item name="android:textSize">@dimen/text_size_select_text_view</item>
         <item name="android:gravity">left</item>
         <item name="android:layout_marginStart">@dimen/margin_start_text_view</item>
     </style>
 
-    <style name="search_button_style" parent="common_text_font">
+    <style name="style_autocomplete_text_view_city" parent="common_text_font">
+        <item name="android:layout_marginTop">@dimen/margin_top_autocomplete_text_view</item>
+        <item name="android:layout_marginEnd">@dimen/margin_end_autocomplete_text_view</item>
+        <item name="android:background">@color/dark_green_color</item>
+        <item name="android:padding">@dimen/padding_autocomplete_text_view</item>
+        <item name="android:textColor">@color/light_green_color</item>
+        <item name="android:textSize">@dimen/text_size_select_text_view</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="style_button_search" parent="common_text_font">
         <item name="android:background">@color/dark_green_color</item>
         <item name="android:textColor">@color/light_green_color</item>
         <item name="android:layout_marginTop">@dimen/margin_top_search_button</item>

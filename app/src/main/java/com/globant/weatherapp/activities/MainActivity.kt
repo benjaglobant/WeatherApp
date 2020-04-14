@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.city_layout)
+        setContentView(R.layout.activity_city_layout)
         presenter = WeatherPresenter(WeatherModel(), WeatherView(this))
     }
 }
