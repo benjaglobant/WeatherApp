@@ -6,7 +6,7 @@ import org.json.JSONArray
 
 class WeatherModel(private val cities: String) : WeatherContracts.Model {
 
-    private var locationList: MutableList<Location> = mutableListOf()
+    private val locationList: MutableList<Location> = mutableListOf()
 
     override fun initModel() {
         val citiesArray = JSONArray(cities)
