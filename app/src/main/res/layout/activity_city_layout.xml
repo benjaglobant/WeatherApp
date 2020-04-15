@@ -24,20 +24,13 @@
         android:src="@drawable/weather_image"
         app:layout_constraintTop_toBottomOf="@id/activity_city_text_view_welcome" />
 
-    <TextView
-        android:id="@+id/activity_city_text_view_insert_city"
-        style="@style/style_text_view_insert"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/select_city_text_view"
-        app:layout_constraintTop_toBottomOf="@+id/activity_city_image_view_weather" />
-
     <AutoCompleteTextView
         android:id="@+id/activity_city_autocomplete_text_view"
         style="@style/style_text_view_insert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/activity_city_text_view_insert_city" />
+        android:hint="@string/text_view_insert_city"
+        app:layout_constraintTop_toBottomOf="@+id/activity_city_image_view_weather" />
 
     <Button
         android:id="@+id/activity_city_button_search"
