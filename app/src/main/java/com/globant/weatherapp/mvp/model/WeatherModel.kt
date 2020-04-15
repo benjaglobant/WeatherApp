@@ -1,37 +1,35 @@
 package com.globant.weatherapp.mvp.model
 
 import com.globant.weatherapp.mvp.contracts.WeatherContracts
+import com.globant.weatherapp.utils.Location
 import org.json.JSONArray
 
 class WeatherModel(private val cities: String) : WeatherContracts.Model {
 
-    private var cityList: MutableList<String> = mutableListOf()
-    private var cityIdList: MutableList<Int> = mutableListOf()
+    private var locationList: MutableList<Location> = mutableListOf()
 
     override fun initModel() {
         val citiesArray = JSONArray(cities)
         for (i in 0 until citiesArray.length()) {
             val jsonObject = citiesArray.getJSONObject(i)
-            if (jsonObject.get("country") == ("AR") && !cityList.contains(
-                    jsonObject.get(NAME).toString()
-                )
-            ) {
-                cityList.add(jsonObject.get(NAME).toString())
-                cityIdList.add(jsonObject.get(ID).toString().toInt())
+            if (jsonObject.get(COUNTRY) == (ARGENTINA) && !getCityNameList().contains(jsonObject.get(NAME).toString())) {
+                locationList.add(Location(jsonObject.get(NAME).toString(), jsonObject.get(ID).toString().toInt()))
             }
         }
     }
 
-    override fun getCityList(): MutableList<String> {
-        return cityList
+    override fun getCityNameList(): MutableList<String> {
+        return locationList.map { it.cityName }.toMutableList()
     }
 
-    override fun getCityIdList(): MutableList<Int> {
-        return cityIdList
+    override fun getCityId(citiNameInserted: String): Int? {
+        return locationList.find { it.cityName == citiNameInserted }?.cityId
     }
 
     companion object {
         const val NAME = "name"
         const val ID = "id"
+        const val COUNTRY = "country"
+        const val ARGENTINA = "AR"
     }
 }

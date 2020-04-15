@@ -1,5 +1,7 @@
 package com.globant.weatherapp.mvp.contracts
 
+import com.globant.weatherapp.utils.Location
+
 interface WeatherContracts {
     interface Presenter {
         fun initPresenter()
@@ -7,11 +9,11 @@ interface WeatherContracts {
 
     interface Model {
         fun initModel()
-        fun getCityList(): MutableList<String>
-        fun getCityIdList(): MutableList<Int>
+        fun getCityNameList(): MutableList<String>
+        fun getCityId(cityNameInserted: String): Int?
     }
 
     interface View {
-        fun initView(cityList: MutableList<String>)
+        fun initView(cityNameList: MutableList<String>)
     }
 }
