@@ -12,4 +12,14 @@
     <dimen name="margin_top_search_button">15dp</dimen>
     <dimen name="text_size_search_button">24sp</dimen>
     <dimen name="padding_search_button">10dp</dimen>
+    <dimen name="margin_card_view">12dp</dimen>
+    <dimen name="text_size_date">12sp</dimen>
+    <dimen name="text_size_current_temperature">28sp</dimen>
+    <dimen name="text_size_temperature">14sp</dimen>
+    <dimen name="text_size_city_name">12sp</dimen>
+    <dimen name="margin_left_date">15dp</dimen>
+    <dimen name="margin_right_city_name">15dp</dimen>
+    <dimen name="margin_right_weather_image">25dp</dimen>
+    <dimen name="margin_top_weather_image">15dp</dimen>
+    <dimen name="padding_constraint_layout_card_view">8dp</dimen>
 </resources>

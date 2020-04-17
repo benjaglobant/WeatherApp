@@ -11,4 +11,8 @@ class WeatherPresenter(
         model.initModel()
         view.initView(model.getCityNameList())
     }
+
+    override fun getCityId(cityName: String): Int? {
+        return model.getCityId(cityName)
+    }
 }

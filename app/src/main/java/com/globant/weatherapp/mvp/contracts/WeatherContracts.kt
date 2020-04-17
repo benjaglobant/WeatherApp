@@ -1,10 +1,9 @@
 package com.globant.weatherapp.mvp.contracts
 
-import com.globant.weatherapp.utils.Location
-
 interface WeatherContracts {
     interface Presenter {
         fun initPresenter()
+        fun getCityId(cityName: String): Int?
     }
 
     interface Model {

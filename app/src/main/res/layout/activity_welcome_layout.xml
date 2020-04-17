@@ -5,36 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_green_color"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.WelcomeActivity">
 
     <AutoCompleteTextView
-        android:id="@+id/activity_city_autocomplete_text_view"
+        android:id="@+id/activity_welcome_autocomplete_text_view"
         style="@style/style_text_view_insert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/text_view_insert_city"
-        app:layout_constraintTop_toBottomOf="@+id/activity_city_image_view_weather" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_welcome_image_view_weather" />
 
     <Button
-        android:id="@+id/activity_city_button_search"
+        android:id="@+id/activity_welcome_button_search"
         style="@style/style_autocomplete_text_view_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text_search_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_city_autocomplete_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_welcome_autocomplete_text_view" />
 
     <ImageView
-        android:id="@+id/activity_city_image_view_weather"
+        android:id="@+id/activity_welcome_image_view_weather"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_top_image_view"
         android:src="@drawable/weather_image"
-        app:layout_constraintTop_toBottomOf="@id/activity_city_text_view_welcome" />
+        app:layout_constraintTop_toBottomOf="@id/activity_welcome_text_view_welcome" />
 
     <TextView
-        android:id="@+id/activity_city_text_view_welcome"
+        android:id="@+id/activity_welcome_text_view_welcome"
         style="@style/style_text_view_welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

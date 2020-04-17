@@ -22,8 +22,8 @@ class WeatherModel(private val cities: String) : WeatherContracts.Model {
         return locationList.map { it.cityName }.toMutableList()
     }
 
-    override fun getCityId(citiNameInserted: String): Int? {
-        return locationList.find { it.cityName == citiNameInserted }?.cityId
+    override fun getCityId(cityNameInserted: String): Int? {
+        return locationList.find { it.cityName == cityNameInserted }?.cityId
     }
 
     companion object {
