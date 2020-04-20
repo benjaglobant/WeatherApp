@@ -5,7 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.globant.weatherapp.R
-import kotlinx.android.synthetic.main.card_view_weather_info_item_layout.view.*
+import kotlinx.android.synthetic.main.card_view_weather_info_item_layout.view.date
+import kotlinx.android.synthetic.main.card_view_weather_info_item_layout.view.weather_image
+import kotlinx.android.synthetic.main.card_view_weather_info_item_layout.view.cityName
+import kotlinx.android.synthetic.main.card_view_weather_info_item_layout.view.currentTemperature
+import kotlinx.android.synthetic.main.card_view_weather_info_item_layout.view.maxTemperature
+import kotlinx.android.synthetic.main.card_view_weather_info_item_layout.view.minTemperature
 
 class WeatherRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -19,16 +24,10 @@ class WeatherRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (holder) {
-            is WeatherViewHolder -> {
-                holder.bind(items[position])
-            }
-        }
+        (holder as WeatherViewHolder).bind(items[position])
     }
 
-    override fun getItemCount(): Int {
-        return items.size
-    }
+    override fun getItemCount(): Int = items.size
 
     fun submitList(weatherList: List<WeatherInfo>) {
         items = weatherList
@@ -44,12 +43,14 @@ class WeatherRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>
         private val weatherCityName = itemView.cityName
 
         fun bind(weatherInfo: WeatherInfo) {
-            weatherDate.text = weatherInfo.date
-            weatherCurrentTemperature.text = weatherInfo.currentTemperature
-            weatherMaxTemperature.text = weatherInfo.maxTemperature
-            weatherImage.setImageResource(weatherInfo.image)
-            weatherMinTemperature.text = weatherInfo.minTemperature
-            weatherCityName.text = weatherInfo.cityName
+            weatherInfo.apply {
+                weatherDate.text = this.date
+                weatherCurrentTemperature.text = this.currentTemperature
+                weatherMaxTemperature.text = this.maxTemperature
+                weatherImage.setImageResource(this.image)
+                weatherMinTemperature.text = this.minTemperature
+                weatherCityName.text = this.cityName
+            }
         }
     }
 }

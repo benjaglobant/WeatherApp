@@ -3,15 +3,16 @@ package com.globant.weatherapp.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.globant.weatherapp.R
-import com.globant.weatherapp.mvp.contracts.WeatherContracts
-import com.globant.weatherapp.mvp.model.WeatherModel
-import com.globant.weatherapp.mvp.presenter.WeatherPresenter
-import com.globant.weatherapp.mvp.view.WeatherView
-import kotlinx.android.synthetic.main.activity_welcome_layout.*
+import com.globant.weatherapp.mvp.contracts.CityContracts
+import com.globant.weatherapp.mvp.model.CityModel
+import com.globant.weatherapp.mvp.presenter.CityPresenter
+import com.globant.weatherapp.mvp.view.CityView
+import kotlinx.android.synthetic.main.activity_welcome_layout.activity_welcome_button_search
+import kotlinx.android.synthetic.main.activity_welcome_layout.activity_welcome_autocomplete_text_view
 
 class WelcomeActivity : AppCompatActivity() {
 
-    private lateinit var presenter: WeatherContracts.Presenter
+    private lateinit var presenter: CityContracts.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +22,7 @@ class WelcomeActivity : AppCompatActivity() {
             it.readText()
         }
 
-        presenter = WeatherPresenter(WeatherModel(jsonToString), WeatherView(this))
+        presenter = CityPresenter(CityModel(jsonToString), CityView(this))
         presenter.initPresenter()
 
         setOnClickListenerToSearchButton()
@@ -29,10 +30,7 @@ class WelcomeActivity : AppCompatActivity() {
 
     private fun setOnClickListenerToSearchButton() {
         activity_welcome_button_search.setOnClickListener {
-            val cityId =
-                presenter.getCityId(activity_welcome_autocomplete_text_view.text.toString())
-            val intent = WeatherInfoActivity.getIntent(this, cityId)
-            startActivity(intent)
+            presenter.onSearchButtonPressed(activity_welcome_autocomplete_text_view.text.toString())
         }
     }
 
