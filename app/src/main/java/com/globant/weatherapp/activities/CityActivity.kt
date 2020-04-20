@@ -10,7 +10,7 @@ import com.globant.weatherapp.mvp.view.CityView
 import kotlinx.android.synthetic.main.activity_welcome_layout.activity_welcome_button_search
 import kotlinx.android.synthetic.main.activity_welcome_layout.activity_welcome_autocomplete_text_view
 
-class WelcomeActivity : AppCompatActivity() {
+class CityActivity : AppCompatActivity() {
 
     private lateinit var presenter: CityContracts.Presenter
 

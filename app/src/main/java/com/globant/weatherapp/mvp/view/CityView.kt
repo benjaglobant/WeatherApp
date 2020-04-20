@@ -15,6 +15,8 @@ class CityView(activity: Activity) : ActivityView(activity), CityContracts.View 
     }
 
     override fun startWeatherActivity(cityId: Int) {
-        activity?.startActivity(WeatherInfoActivity.getIntent(activity!!, cityId))
+        activity?.let {
+            it.startActivity(WeatherInfoActivity.getIntent(it, cityId))
+        }
     }
 }
