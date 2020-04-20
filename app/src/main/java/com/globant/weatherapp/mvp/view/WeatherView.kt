@@ -1,13 +1,27 @@
 package com.globant.weatherapp.mvp.view
 
 import android.app.Activity
-import android.widget.ArrayAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.globant.weatherapp.mvp.contracts.WeatherContracts
 import com.globant.weatherapp.mvp.view.base.ActivityView
-import kotlinx.android.synthetic.main.activity_city_layout.activity_city_autocomplete_text_view
+import com.globant.weatherapp.utils.DataSource
+import com.globant.weatherapp.utils.WeatherRecyclerViewAdapter
+import kotlinx.android.synthetic.main.activity_weather_info_layout.recycler_view
 
 class WeatherView(activity: Activity) : ActivityView(activity), WeatherContracts.View {
-    override fun initView(cityNameList: MutableList<String>) {
-        activity?.activity_city_autocomplete_text_view?.setAdapter(ArrayAdapter(context, android.R.layout.simple_dropdown_item_1line, cityNameList))
+
+    private lateinit var weatherAdapter: WeatherRecyclerViewAdapter
+
+    override fun initView() {
+        initRecyclerView()
+        weatherAdapter.submitList(DataSource.createDataSet())
+    }
+
+    private fun initRecyclerView() {
+        activity?.recycler_view?.apply {
+            layoutManager = LinearLayoutManager(this.context)
+            weatherAdapter = WeatherRecyclerViewAdapter()
+            adapter = weatherAdapter
+        }
     }
 }
