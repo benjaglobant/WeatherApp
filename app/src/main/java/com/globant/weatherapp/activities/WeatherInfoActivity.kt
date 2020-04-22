@@ -9,6 +9,7 @@ import com.globant.weatherapp.mvp.contracts.WeatherContracts
 import com.globant.weatherapp.mvp.model.WeatherModel
 import com.globant.weatherapp.mvp.presenter.WeatherPresenter
 import com.globant.weatherapp.mvp.view.WeatherView
+import com.globant.weatherapp.services.WeatherService
 
 class WeatherInfoActivity : AppCompatActivity() {
 
@@ -18,10 +19,10 @@ class WeatherInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather_info_layout)
 
-        val cityId = intent.extras.getSerializable(CITY_ID)
+        val cityId = intent.extras.getInt(CITY_ID)
 
-        presenter = WeatherPresenter(WeatherModel(), WeatherView(this))
-        presenter.initPresenter(cityId.toString().toInt())
+        presenter = WeatherPresenter(WeatherModel(WeatherService()), WeatherView(this))
+        presenter.initPresenter(cityId)
     }
 
     companion object {

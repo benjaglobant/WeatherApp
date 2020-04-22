@@ -12,16 +12,8 @@ class WeatherPresenter(
 ) : WeatherContracts.Presenter {
 
     override fun initPresenter(cityId: Int) {
-        getFiveDaysWeather(cityId)
+        model.getFiveDaysWeather(cityId)
         view.initView()
     }
 
-    fun getFiveDaysWeather(cityId: Int) {
-        service.getFiveDaysWeatherByCityId(cityId)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ forecast ->
-                val request = forecast
-            })
-    }
 }

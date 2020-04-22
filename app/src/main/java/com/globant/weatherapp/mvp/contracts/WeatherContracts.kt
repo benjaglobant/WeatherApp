@@ -6,7 +6,7 @@ interface WeatherContracts {
     }
 
     interface Model {
-
+        fun getFiveDaysWeather(cityId: Int)
     }
 
     interface View {
