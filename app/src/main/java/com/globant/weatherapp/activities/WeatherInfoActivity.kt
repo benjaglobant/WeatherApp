@@ -21,7 +21,7 @@ class WeatherInfoActivity : AppCompatActivity() {
         val cityId = intent.extras.getSerializable(CITY_ID)
 
         presenter = WeatherPresenter(WeatherModel(), WeatherView(this))
-        presenter.initPresenter()
+        presenter.initPresenter(cityId.toString().toInt())
     }
 
     companion object {
