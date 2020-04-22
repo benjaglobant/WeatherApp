@@ -1,13 +1,19 @@
 package com.globant.weatherapp.mvp.presenter
 
 import com.globant.weatherapp.mvp.contracts.WeatherContracts
+import com.globant.weatherapp.services.WeatherService
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class WeatherPresenter(
     private val model: WeatherContracts.Model,
-    private val view: WeatherContracts.View
+    private val view: WeatherContracts.View,
+    private val service: WeatherService = WeatherService()
 ) : WeatherContracts.Presenter {
 
-    override fun initPresenter() {
+    override fun initPresenter(cityId: Int) {
+        model.getFiveDaysWeather(cityId)
         view.initView()
     }
+
 }
