@@ -1,15 +1,16 @@
 package com.globant.weatherapp.mvp.model
 
+import android.content.res.AssetManager
 import com.globant.weatherapp.mvp.contracts.CityContracts
 import com.globant.weatherapp.utils.Location
 import org.json.JSONArray
 
-class CityModel(private val cities: String) : CityContracts.Model {
+class CityModel(private val assetsManager: AssetManager) : CityContracts.Model {
 
     private val locationList: MutableList<Location> = mutableListOf()
 
     override fun initModel() {
-        val citiesArray = JSONArray(cities)
+        val citiesArray = JSONArray(readJsonFile())
         for (i in 0 until citiesArray.length()) {
             val jsonObject = citiesArray.getJSONObject(i)
             if (jsonObject.get(COUNTRY) == (ARGENTINA) && !getCityNameList().contains(jsonObject.get(NAME).toString())) {
@@ -17,6 +18,11 @@ class CityModel(private val cities: String) : CityContracts.Model {
             }
         }
     }
+
+    private fun readJsonFile(): String =
+        assetsManager.open(FILE_NAME).bufferedReader().use {
+            it.readText()
+        }
 
     override fun getCityNameList(): MutableList<String> {
         return locationList.map { it.cityName }.toMutableList()
@@ -27,6 +33,7 @@ class CityModel(private val cities: String) : CityContracts.Model {
     }
 
     companion object {
+        const val FILE_NAME = "city_list.json"
         const val NAME = "name"
         const val ID = "id"
         const val COUNTRY = "country"

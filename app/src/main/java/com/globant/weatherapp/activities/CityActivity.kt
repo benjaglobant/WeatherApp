@@ -18,11 +18,7 @@ class CityActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome_layout)
 
-        val jsonToString = applicationContext.assets.open(FILE_NAME).bufferedReader().use {
-            it.readText()
-        }
-
-        presenter = CityPresenter(CityModel(jsonToString), CityView(this))
+        presenter = CityPresenter(CityModel(this.assets), CityView(this))
         presenter.initPresenter()
 
         setOnClickListenerToSearchButton()
@@ -34,7 +30,4 @@ class CityActivity : AppCompatActivity() {
         }
     }
 
-    companion object {
-        const val FILE_NAME = "city.list.json"
-    }
 }
