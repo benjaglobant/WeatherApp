@@ -33,7 +33,7 @@ class CityModel(private val assetsManager: AssetManager) : CityContracts.Model {
     }
 
     companion object {
-        const val FILE_NAME = "city.list.json"
+        const val FILE_NAME = "city_list.json"
         const val NAME = "name"
         const val ID = "id"
         const val COUNTRY = "country"
