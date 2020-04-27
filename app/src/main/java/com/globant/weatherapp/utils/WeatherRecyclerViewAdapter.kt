@@ -9,6 +9,8 @@ import com.bumptech.glide.request.RequestOptions
 import com.globant.weatherapp.R
 import com.globant.weatherapp.data.entities.FiveDaysWeather
 import com.globant.weatherapp.data.entities.WeatherByDay
+import com.globant.weatherapp.utils.Constants.Companion.TEN
+import com.globant.weatherapp.utils.Constants.Companion.ZERO
 import kotlinx.android.synthetic.main.card_view_weather_info_item_layout.view.date
 import kotlinx.android.synthetic.main.card_view_weather_info_item_layout.view.cityName
 import kotlinx.android.synthetic.main.card_view_weather_info_item_layout.view.currentTemperature
@@ -50,7 +52,7 @@ class WeatherRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         fun bind(weatherItem: WeatherByDay, cityName: String) {
             weatherItem.apply {
-                weatherDate.text = this.date
+                weatherDate.text = this.date.substring(ZERO, TEN)
                 weatherCurrentTemperature.text = "${this.main.temp.toInt()}$CELCIUS"
                 weatherMinTemperature.text = "${this.main.temp_min.toInt()}$CELCIUS"
                 weatherMaxTemperature.text = "${this.main.temp_max.toInt()}$CELCIUS"
