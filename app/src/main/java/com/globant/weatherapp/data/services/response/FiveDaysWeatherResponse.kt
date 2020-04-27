@@ -1,4 +1,4 @@
-package com.globant.weatherapp.services.response
+package com.globant.weatherapp.data.services.response
 
 data class FiveDaysWeatherResponse(
     val list: List<WeatherByDayResponse> = listOf(),

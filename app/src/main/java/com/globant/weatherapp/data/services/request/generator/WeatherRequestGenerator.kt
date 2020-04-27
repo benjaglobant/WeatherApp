@@ -1,4 +1,4 @@
-package com.globant.weatherapp.services.request.generator
+package com.globant.weatherapp.data.services.request.generator
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

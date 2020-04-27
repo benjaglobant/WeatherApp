@@ -9,7 +9,7 @@ import com.globant.weatherapp.mvp.contracts.WeatherContracts
 import com.globant.weatherapp.mvp.model.WeatherModel
 import com.globant.weatherapp.mvp.presenter.WeatherPresenter
 import com.globant.weatherapp.mvp.view.WeatherView
-import com.globant.weatherapp.services.WeatherService
+import com.globant.weatherapp.data.services.WeatherService
 
 class WeatherInfoActivity : AppCompatActivity() {
 
