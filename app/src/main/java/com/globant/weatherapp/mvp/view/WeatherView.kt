@@ -15,7 +15,7 @@ class WeatherView(activity: Activity) : ActivityView(activity), WeatherContracts
     private var weatherAdapter: WeatherRecyclerViewAdapter = WeatherRecyclerViewAdapter()
 
     override fun initView() {
-        initRecyclerView()
+        activity?.recycler_view?.layoutManager = LinearLayoutManager(this.context)
         activity?.progress_bar?.visibility = View.VISIBLE
     }
 
@@ -26,9 +26,5 @@ class WeatherView(activity: Activity) : ActivityView(activity), WeatherContracts
             adapter = weatherAdapter
             visibility = View.VISIBLE
         }
-    }
-
-    private fun initRecyclerView() {
-        activity?.recycler_view?.layoutManager = LinearLayoutManager(this.context)
     }
 }

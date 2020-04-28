@@ -14,22 +14,24 @@ import com.globant.weatherapp.utils.Constants.Companion.ZERO
 
 class WeatherMapper {
 
-    fun transform(fiveDaysWeatherResponse: FiveDaysWeatherResponse): FiveDaysWeather =
-        fiveDaysWeatherResponse.let {
-            FiveDaysWeather(
-                transformToCity(it.city),
-                transformWeatherByDayList(it.list)
+    fun transform(fiveDaysWeatherResponse: FiveDaysWeatherResponse): FiveDaysWeather {
+        fiveDaysWeatherResponse.apply {
+            return FiveDaysWeather(
+                transformToCity(this.city),
+                transformWeatherByDayList(this.list)
             )
         }
+    }
 
-    private fun transformToWeatherByDay(weatherByDayResponse: WeatherByDayResponse): WeatherByDay =
-        weatherByDayResponse.let {
-            WeatherByDay(
-                transformToTemperature(it.main),
-                transformToWeather(it.weather),
-                it.dt_txt
+    private fun transformToWeatherByDay(weatherByDayResponse: WeatherByDayResponse): WeatherByDay {
+        weatherByDayResponse.apply {
+            return WeatherByDay(
+                transformToTemperature(this.main),
+                transformToWeather(this.weather),
+                this.dt_txt
             )
         }
+    }
 
     private fun transformWeatherByDayList(listOfWeatherByDayResponse: List<WeatherByDayResponse>): List<WeatherByDay> {
         return listOfWeatherByDayResponse.map {
@@ -37,31 +39,34 @@ class WeatherMapper {
         }
     }
 
-    private fun transformToCity(cityResponse: CityResponse): City =
-        cityResponse.let {
-            City(
-                it.id,
-                it.name
+    private fun transformToCity(cityResponse: CityResponse): City {
+        cityResponse.apply {
+            return City(
+                this.id,
+                this.name
             )
         }
+    }
 
-    private fun transformToTemperature(temperatureResponse: TemperatureResponse): Temperature =
-        temperatureResponse.let {
-            Temperature(
-                it.temp,
-                it.feels_like,
-                it.temp_min,
-                it.temp_max,
-                it.pressure,
-                it.humidity
+    private fun transformToTemperature(temperatureResponse: TemperatureResponse): Temperature {
+        temperatureResponse.apply {
+            return Temperature(
+                this.temp,
+                this.feels_like,
+                this.temp_min,
+                this.temp_max,
+                this.pressure,
+                this.humidity
             )
         }
+    }
 
-    private fun transformToWeather(weatherResponse: List<WeatherResponse>): Weather =
-        weatherResponse[ZERO].let {
-            Weather(
-                it.description,
-                it.icon
+    private fun transformToWeather(weatherResponse: List<WeatherResponse>): Weather {
+        weatherResponse[ZERO].apply {
+            return Weather(
+                this.description,
+                this.icon
             )
         }
+    }
 }
