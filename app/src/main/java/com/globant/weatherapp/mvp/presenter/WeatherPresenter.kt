@@ -14,11 +14,12 @@ class WeatherPresenter(
 ) : WeatherContracts.Presenter {
 
     override fun initPresenter(cityId: Int) {
+        view.initView()
         model.getFiveDaysWeather(cityId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { weathers ->
-                view.initView(FiveDaysWeather(weathers.city, getData(weathers.list)))
+                view.showData(FiveDaysWeather(weathers.city, getData(weathers.list)))
             }
     }
 
@@ -28,7 +29,7 @@ class WeatherPresenter(
         var index = ONE
         var pos = ZERO
         while ((index < list.size - ONE) && (pos < FOUR)) {
-            if ((list[index].date.contains(MIDDLEDAY)) && (sameDay(
+            if ((list[index].date.contains(MIDDLEDAY)) && (notSameDay(
                     list[index].date,
                     dataList[pos].date
                 ))
@@ -42,7 +43,7 @@ class WeatherPresenter(
         return dataList
     }
 
-    private fun sameDay(dayA: String, dayB: String): Boolean =
+    private fun notSameDay(dayA: String, dayB: String): Boolean =
         dayA.substring(ZERO, TEN) != dayB.substring(ZERO, TEN)
 
     companion object {

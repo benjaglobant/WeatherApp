@@ -13,6 +13,7 @@ interface WeatherContracts {
     }
 
     interface View {
-        fun initView(weathers: FiveDaysWeather)
+        fun initView()
+        fun showData(weathers: FiveDaysWeather)
     }
 }
