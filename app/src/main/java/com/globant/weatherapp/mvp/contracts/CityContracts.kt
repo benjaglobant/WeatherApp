@@ -15,5 +15,6 @@ interface CityContracts {
     interface View {
         fun initView(cityNameList: MutableList<String>)
         fun startWeatherActivity(cityId: Int)
+        fun showCityError()
     }
 }

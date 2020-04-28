@@ -3,4 +3,6 @@
     <string name="welcome_text">Welcome to Weather App</string>
     <string name="text_view_insert_city">Please insert a city</string>
     <string name="text_search_button">Search</string>
+    <string name="error_message_internet">Error: You are not connected to internet.</string>
+    <string name="error_message_city">Error: Invalid city inserted.</string>
 </resources>

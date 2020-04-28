@@ -15,5 +15,6 @@ interface WeatherContracts {
     interface View {
         fun initView()
         fun showData(weathers: FiveDaysWeather)
+        fun showError()
     }
 }
