@@ -1,6 +1,6 @@
-package com.globant.weatherapp.services.api
+package com.globant.weatherapp.data.services.api
 
-import com.globant.weatherapp.services.response.FiveDaysWeatherResponse
+import com.globant.weatherapp.data.services.response.FiveDaysWeatherResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.QueryMap

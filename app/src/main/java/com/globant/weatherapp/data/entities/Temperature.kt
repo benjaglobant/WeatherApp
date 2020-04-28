@@ -1,9 +1,9 @@
-package com.globant.weatherapp.services.response
+package com.globant.weatherapp.data.entities
 
 import com.globant.weatherapp.utils.Constants.Companion.DEFAULT_INT
 import com.globant.weatherapp.utils.Constants.Companion.DEFAULT_TEMPERATURE
 
-data class TemperatureResponse(
+data class Temperature (
     val temp: Double = DEFAULT_TEMPERATURE,
     val feels_like: Double = DEFAULT_TEMPERATURE,
     val temp_min: Double = DEFAULT_TEMPERATURE,

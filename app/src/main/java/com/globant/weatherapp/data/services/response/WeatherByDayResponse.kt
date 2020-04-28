@@ -1,4 +1,4 @@
-package com.globant.weatherapp.services.response
+package com.globant.weatherapp.data.services.response
 
 import com.globant.weatherapp.utils.Constants.Companion.EMPTY_STRING
 
