@@ -13,8 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.WeatherInfoActivity"></activity>
-        <activity android:name=".activities.CityActivity"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".activities.CityActivity"
+            android:configChanges="keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
