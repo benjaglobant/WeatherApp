@@ -18,9 +18,11 @@ class WeatherPresenter(
         model.getFiveDaysWeather(cityId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { weathers ->
+            .subscribe ({ weathers ->
                 view.showData(FiveDaysWeather(weathers.city, getData(weathers.list)))
-            }
+            }, {
+                view.showError()
+            })
     }
 
     private fun getData(list: List<WeatherByDay>): List<WeatherByDay> {

@@ -2,7 +2,9 @@ package com.globant.weatherapp.mvp.view
 
 import android.app.Activity
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.globant.weatherapp.R
 import com.globant.weatherapp.data.entities.FiveDaysWeather
 import com.globant.weatherapp.mvp.contracts.WeatherContracts
 import com.globant.weatherapp.mvp.view.base.ActivityView
@@ -26,5 +28,11 @@ class WeatherView(activity: Activity) : ActivityView(activity), WeatherContracts
             adapter = weatherAdapter
             visibility = View.VISIBLE
         }
+    }
+
+    override fun showError(){
+        activity?.progress_bar?.visibility = View.GONE
+        Toast.makeText(this.context, R.string.error_message_internet, Toast.LENGTH_SHORT).show()
+        activity?.onBackPressed()
     }
 }

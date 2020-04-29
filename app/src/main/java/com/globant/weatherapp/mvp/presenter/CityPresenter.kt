@@ -13,6 +13,8 @@ class CityPresenter(
     }
 
     override fun onSearchButtonPressed(cityName: String) {
-        model.getCityId(cityName)?.let { view.startWeatherActivity(it) }
+        model.getCityId(cityName)?.let { view.startWeatherActivity(it) } ?: run{
+            view.showCityError()
+        }
     }
 }
