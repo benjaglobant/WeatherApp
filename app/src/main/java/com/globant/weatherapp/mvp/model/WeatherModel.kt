@@ -1,14 +1,44 @@
 package com.globant.weatherapp.mvp.model
 
-import com.globant.weatherapp.data.entities.FiveDaysWeather
-import com.globant.weatherapp.mvp.contracts.WeatherContracts
-import com.globant.weatherapp.data.services.WeatherService
+import com.globant.weatherapp.data.entity.WeatherForecast
+import com.globant.weatherapp.data.entity.WeatherByDay
+import com.globant.weatherapp.mvp.contract.WeatherContract
+import com.globant.weatherapp.data.service.WeatherService
+import com.globant.weatherapp.util.Constants.Companion.TEN
+import com.globant.weatherapp.util.Constants.Companion.ZERO
 import io.reactivex.Observable
 
-class WeatherModel(private val service: WeatherService) : WeatherContracts.Model {
+class WeatherModel(private val service: WeatherService) : WeatherContract.Model {
 
-    override fun getFiveDaysWeather(cityId: Int): Observable<FiveDaysWeather> {
+    override fun getFiveDaysWeather(cityId: Int): Observable<WeatherForecast> {
         return service.getFiveDaysWeatherByCityId(cityId)
+    }
+
+    override fun getData(weathers: WeatherForecast): WeatherForecast {
+        var dataList = ArrayList<WeatherByDay>()
+        weathers.list.apply {
+            dataList.add(this[ZERO])
+            var index = ONE
+            var pos = ZERO
+            while ((pos < FOUR) && (index < this.size - ONE)) {
+                if ((this[index].date.contains(MIDDLEDAY)) && (notSameDay(this[index].date, dataList[pos].date))) {
+                    dataList.add(this[index])
+                    pos++
+                }
+                index++
+            }
+            dataList.add(this[this.size - ONE])
+        }
+        return WeatherForecast(weathers.city, dataList)
+    }
+
+    private fun notSameDay(dayA: String, dayB: String): Boolean =
+        dayA.substring(ZERO, TEN) != dayB.substring(ZERO, TEN)
+
+    companion object {
+        const val FOUR = 4
+        const val ONE = 1
+        const val MIDDLEDAY = "12:00:00"
     }
 
 }

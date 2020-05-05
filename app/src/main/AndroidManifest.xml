@@ -12,9 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.WeatherInfoActivity"></activity>
+        <activity android:name=".activity.WeatherInfoActivity"></activity>
         <activity
-            android:name=".activities.CityActivity"
+            android:name=".activity.CityActivity"
             android:configChanges="keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

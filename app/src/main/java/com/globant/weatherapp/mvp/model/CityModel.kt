@@ -1,11 +1,11 @@
 package com.globant.weatherapp.mvp.model
 
 import android.content.res.AssetManager
-import com.globant.weatherapp.data.entities.City
-import com.globant.weatherapp.mvp.contracts.CityContracts
+import com.globant.weatherapp.data.entity.City
+import com.globant.weatherapp.mvp.contract.CityContract
 import org.json.JSONArray
 
-class CityModel(private val assetsManager: AssetManager) : CityContracts.Model {
+class CityModel(private val assetsManager: AssetManager) : CityContract.Model {
 
     private val locationList: MutableList<City> = mutableListOf()
 

@@ -22,4 +22,8 @@
     <dimen name="margin_right_weather_image">25dp</dimen>
     <dimen name="margin_top_weather_image">15dp</dimen>
     <dimen name="padding_constraint_layout_card_view">8dp</dimen>
+    <dimen name="margin_weather_detail_item">6dp</dimen>
+    <dimen name="margin_text_view_weather_item">20dp</dimen>
+    <dimen name="text_size_fragment_title">16sp</dimen>
+    <dimen name="text_size_fragment_item_text_view">14sp</dimen>
 </resources>

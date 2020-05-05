@@ -1,11 +1,11 @@
 package com.globant.weatherapp.mvp.presenter
 
-import com.globant.weatherapp.mvp.contracts.CityContracts
+import com.globant.weatherapp.mvp.contract.CityContract
 
 class CityPresenter(
-    private val model: CityContracts.Model,
-    private val view: CityContracts.View
-) : CityContracts.Presenter {
+    private val model: CityContract.Model,
+    private val view: CityContract.View
+) : CityContract.Presenter {
 
     override fun initPresenter() {
         model.initModel()

@@ -68,4 +68,17 @@
         <item name="android:layout_marginRight">@dimen/margin_right_city_name</item>
     </style>
 
+    <style name="style_text_view_weather_detail_item" parent="common_text_font">
+        <item name="android:textSize">@dimen/text_size_fragment_item_text_view</item>
+        <item name="android:textColor">@color/light_gray_color</item>
+    </style>
+
+    <style name="style_text_view_fragment_title">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/dark_green_color</item>
+        <item name="background">@color/light_green_color</item>
+        <item name="android:textSize">@dimen/text_size_fragment_title</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
 </resources>

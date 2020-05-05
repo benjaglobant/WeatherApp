@@ -1,22 +1,22 @@
 package com.globant.weatherapp.data.mapper
 
-import com.globant.weatherapp.data.entities.FiveDaysWeather
-import com.globant.weatherapp.data.entities.Weather
-import com.globant.weatherapp.data.entities.Temperature
-import com.globant.weatherapp.data.entities.City
-import com.globant.weatherapp.data.entities.WeatherByDay
-import com.globant.weatherapp.data.services.response.WeatherByDayResponse
-import com.globant.weatherapp.data.services.response.TemperatureResponse
-import com.globant.weatherapp.data.services.response.WeatherResponse
-import com.globant.weatherapp.data.services.response.CityResponse
-import com.globant.weatherapp.data.services.response.FiveDaysWeatherResponse
-import com.globant.weatherapp.utils.Constants.Companion.ZERO
+import com.globant.weatherapp.data.entity.WeatherForecast
+import com.globant.weatherapp.data.entity.Weather
+import com.globant.weatherapp.data.entity.Temperature
+import com.globant.weatherapp.data.entity.City
+import com.globant.weatherapp.data.entity.WeatherByDay
+import com.globant.weatherapp.data.service.response.WeatherByDayResponse
+import com.globant.weatherapp.data.service.response.TemperatureResponse
+import com.globant.weatherapp.data.service.response.WeatherResponse
+import com.globant.weatherapp.data.service.response.CityResponse
+import com.globant.weatherapp.data.service.response.WeatherForecastResponse
+import com.globant.weatherapp.util.Constants.Companion.ZERO
 
 class WeatherMapper {
 
-    fun transform(fiveDaysWeatherResponse: FiveDaysWeatherResponse): FiveDaysWeather {
+    fun transform(fiveDaysWeatherResponse: WeatherForecastResponse): WeatherForecast {
         fiveDaysWeatherResponse.apply {
-            return FiveDaysWeather(
+            return WeatherForecast(
                 transformToCity(city),
                 transformWeatherByDayList(list)
             )
@@ -52,9 +52,9 @@ class WeatherMapper {
         temperatureResponse.apply {
             return Temperature(
                 temp,
-                feels_like,
                 temp_min,
                 temp_max,
+                feels_like,
                 pressure,
                 humidity
             )
@@ -64,7 +64,6 @@ class WeatherMapper {
     private fun transformToWeather(weatherResponse: List<WeatherResponse>): Weather {
         weatherResponse[ZERO].apply {
             return Weather(
-                description,
                 icon
             )
         }
