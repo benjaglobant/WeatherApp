@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/margin_weather_detail_item"
+    android:layout_marginTop="@dimen/margin_weather_detail_item"
+    android:layout_marginRight="@dimen/margin_weather_detail_item"
+    android:background="@color/dark_green_color">
+
+    <TextView
+        android:id="@+id/fragment_item_time"
+        style="@style/style_text_view_weather_detail_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/fragment_item_weather_icon"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_item_weather_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/fragment_item_weather_icon" />
+
+    <ImageView
+        android:id="@+id/fragment_item_weather_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_item_current_temp"
+        app:layout_constraintStart_toEndOf="@+id/fragment_item_time"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/fragment_item_current_temp"
+        style="@style/style_text_view_weather_detail_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/fragment_item_feels_like"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fragment_item_weather_icon"
+        app:layout_constraintTop_toTopOf="@+id/fragment_item_weather_icon" />
+
+    <TextView
+        android:id="@+id/fragment_item_feels_like"
+        style="@style/style_text_view_weather_detail_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/fragment_item_weather_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fragment_item_weather_icon"
+        app:layout_constraintTop_toBottomOf="@id/fragment_item_current_temp" />
+
+    <TextView
+        android:id="@+id/fragment_item_min_temp"
+        style="@style/style_text_view_weather_detail_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_item_max_temp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_item_feels_like" />
+
+    <TextView
+        android:id="@+id/fragment_item_max_temp"
+        style="@style/style_text_view_weather_detail_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fragment_item_min_temp"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_item_feels_like" />
+
+    <TextView
+        android:id="@+id/fragment_item_humidity"
+        style="@style/style_text_view_weather_detail_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_item_min_temp" />
+
+    <TextView
+        android:id="@+id/fragment_item_pressure"
+        style="@style/style_text_view_weather_detail_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_item_humidity" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
