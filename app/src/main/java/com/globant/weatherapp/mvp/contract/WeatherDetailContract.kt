@@ -1,6 +1,6 @@
 package com.globant.weatherapp.mvp.contract
 
-import com.globant.weatherapp.data.entity.FiveDaysWeather
+import com.globant.weatherapp.data.entity.WeatherForecast
 import io.reactivex.Observable
 
 
@@ -10,13 +10,13 @@ interface WeatherDetailContract {
     }
 
     interface Model {
-        fun getFiveDaysWeather(cityId: Int): Observable<FiveDaysWeather>
-        fun getData(weather: FiveDaysWeather, date: String): FiveDaysWeather
+        fun getFiveDaysWeather(cityId: Int): Observable<WeatherForecast>
+        fun getData(weathers: WeatherForecast, date: String): WeatherForecast
     }
 
     interface View {
         fun initView()
-        fun showFragmentData(weathers: FiveDaysWeather)
+        fun showFragmentData(weathers: WeatherForecast)
         fun showFragmentError()
     }
 }

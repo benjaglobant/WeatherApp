@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.globant.weatherapp.R
 import com.globant.weatherapp.data.entity.City
-import com.globant.weatherapp.data.entity.FiveDaysWeather
+import com.globant.weatherapp.data.entity.WeatherForecast
 import com.globant.weatherapp.data.entity.WeatherByDay
 import com.globant.weatherapp.util.Constants.Companion.CELCIUS
 import com.globant.weatherapp.util.Constants.Companion.TEN
@@ -38,7 +38,7 @@ class WeatherRecyclerViewAdapter(private val onItemClick: (String, Int) -> Unit)
 
     override fun getItemCount(): Int = this.weathersList.size
 
-    fun submitList(weathers: FiveDaysWeather) {
+    fun submitList(weathers: WeatherForecast) {
         this.weathersList = weathers.list
         this.city = weathers.city
     }

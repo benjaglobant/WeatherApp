@@ -18,11 +18,7 @@
         android:id="@+id/fragment_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/light_green_color"
-        android:textAlignment="center"
-        android:textColor="@color/dark_green_color"
-        android:textSize="@dimen/text_size_fragment_title"
-        android:visibility="gone"
+        style="@style/style_text_view_fragment_title"
         app:layout_constraintBottom_toTopOf="@id/fragment_recycler_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,8 +29,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/fragment_title">
-
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintTop_toBottomOf="@id/fragment_title"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

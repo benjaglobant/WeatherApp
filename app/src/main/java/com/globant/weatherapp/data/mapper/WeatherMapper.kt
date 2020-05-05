@@ -1,6 +1,6 @@
 package com.globant.weatherapp.data.mapper
 
-import com.globant.weatherapp.data.entity.FiveDaysWeather
+import com.globant.weatherapp.data.entity.WeatherForecast
 import com.globant.weatherapp.data.entity.Weather
 import com.globant.weatherapp.data.entity.Temperature
 import com.globant.weatherapp.data.entity.City
@@ -9,14 +9,14 @@ import com.globant.weatherapp.data.service.response.WeatherByDayResponse
 import com.globant.weatherapp.data.service.response.TemperatureResponse
 import com.globant.weatherapp.data.service.response.WeatherResponse
 import com.globant.weatherapp.data.service.response.CityResponse
-import com.globant.weatherapp.data.service.response.FiveDaysWeatherResponse
+import com.globant.weatherapp.data.service.response.WeatherForecastResponse
 import com.globant.weatherapp.util.Constants.Companion.ZERO
 
 class WeatherMapper {
 
-    fun transform(fiveDaysWeatherResponse: FiveDaysWeatherResponse): FiveDaysWeather {
+    fun transform(fiveDaysWeatherResponse: WeatherForecastResponse): WeatherForecast {
         fiveDaysWeatherResponse.apply {
-            return FiveDaysWeather(
+            return WeatherForecast(
                 transformToCity(city),
                 transformWeatherByDayList(list)
             )

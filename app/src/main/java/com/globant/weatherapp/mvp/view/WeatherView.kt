@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.globant.weatherapp.R
 import com.globant.weatherapp.activity.WeatherDetailFragment
-import com.globant.weatherapp.data.entity.FiveDaysWeather
+import com.globant.weatherapp.data.entity.WeatherForecast
 import com.globant.weatherapp.mvp.contract.WeatherContract
 import com.globant.weatherapp.mvp.view.base.ActivityView
 import com.globant.weatherapp.util.WeatherRecyclerViewAdapter
@@ -18,8 +18,8 @@ class WeatherView(activity: Activity) : ActivityView(activity), WeatherContract.
 
     private var weatherAdapter: WeatherRecyclerViewAdapter =
         WeatherRecyclerViewAdapter { date: String, cityId: Int ->
-            val fragment = WeatherDetailFragment.newInstance(cityId, date)
-            fragment.show((context as FragmentActivity).supportFragmentManager, "Weather Details")
+            WeatherDetailFragment.newInstance(cityId, date)
+                .show((context as FragmentActivity).supportFragmentManager, "Weather Details")
         }
 
     override fun initView() {
@@ -27,7 +27,7 @@ class WeatherView(activity: Activity) : ActivityView(activity), WeatherContract.
         activity?.progress_bar?.visibility = View.VISIBLE
     }
 
-    override fun showData(weathers: FiveDaysWeather) {
+    override fun showData(weathers: WeatherForecast) {
         weatherAdapter.submitList(weathers)
         activity?.progress_bar?.visibility = View.GONE
         activity?.recycler_view?.apply {

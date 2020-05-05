@@ -5,7 +5,7 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.globant.weatherapp.R
-import com.globant.weatherapp.data.entity.FiveDaysWeather
+import com.globant.weatherapp.data.entity.WeatherForecast
 import com.globant.weatherapp.mvp.contract.WeatherDetailContract
 import com.globant.weatherapp.mvp.view.base.FragmentView
 import com.globant.weatherapp.util.Constants.Companion.TEN
@@ -21,7 +21,7 @@ class WeatherDetailView(fragment: DialogFragment) : WeatherDetailContract.View,
     private var weatherDetailAdapter: WeatherDetailRecyclerViewAdapter =
         WeatherDetailRecyclerViewAdapter()
 
-    override fun showFragmentData(weathers: FiveDaysWeather) {
+    override fun showFragmentData(weathers: WeatherForecast) {
         weatherDetailAdapter.submitList(weathers)
         fragment?.fragment_progress_bar?.visibility = View.GONE
         fragment?.fragment_title?.apply {

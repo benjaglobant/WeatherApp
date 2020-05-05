@@ -1,6 +1,6 @@
 package com.globant.weatherapp.mvp.model
 
-import com.globant.weatherapp.data.entity.FiveDaysWeather
+import com.globant.weatherapp.data.entity.WeatherForecast
 import com.globant.weatherapp.data.entity.WeatherByDay
 import com.globant.weatherapp.mvp.contract.WeatherContract
 import com.globant.weatherapp.data.service.WeatherService
@@ -10,11 +10,11 @@ import io.reactivex.Observable
 
 class WeatherModel(private val service: WeatherService) : WeatherContract.Model {
 
-    override fun getFiveDaysWeather(cityId: Int): Observable<FiveDaysWeather> {
+    override fun getFiveDaysWeather(cityId: Int): Observable<WeatherForecast> {
         return service.getFiveDaysWeatherByCityId(cityId)
     }
 
-    override fun getData(weathers: FiveDaysWeather): FiveDaysWeather {
+    override fun getData(weathers: WeatherForecast): WeatherForecast {
         var dataList = ArrayList<WeatherByDay>()
         weathers.list.apply {
             dataList.add(this[ZERO])
@@ -29,7 +29,7 @@ class WeatherModel(private val service: WeatherService) : WeatherContract.Model 
             }
             dataList.add(this[this.size - ONE])
         }
-        return FiveDaysWeather(weathers.city, dataList)
+        return WeatherForecast(weathers.city, dataList)
     }
 
     private fun notSameDay(dayA: String, dayB: String): Boolean =

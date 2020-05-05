@@ -22,7 +22,7 @@ class WeatherDetailFragment() : DialogFragment() {
         savedInstanceState: Bundle?
     ): View = inflater.inflate(R.layout.fragment_weather_detail_layout, container, false)
 
-    override fun onStart() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val presenter: WeatherDetailContract.Presenter =
             WeatherDetailPresenter(WeatherDetailModel(WeatherService()), WeatherDetailView(this))
 
@@ -33,7 +33,8 @@ class WeatherDetailFragment() : DialogFragment() {
         arguments?.getString(DATE)?.let { date_arg = it }
 
         presenter.initPresenter(cityId_arg, date_arg)
-        super.onStart()
+
+        super.onViewCreated(view, savedInstanceState)
     }
 
     companion object {
@@ -41,8 +42,10 @@ class WeatherDetailFragment() : DialogFragment() {
         private const val DATE = "date"
         fun newInstance(cityId: Int, date: String): WeatherDetailFragment {
             val args = Bundle()
-            args.putInt(CITY_ID, cityId)
-            args.putString(DATE, date)
+            args.apply {
+                putInt(CITY_ID, cityId)
+                putString(DATE, date)
+            }
             val fragment = WeatherDetailFragment()
             fragment.arguments = args
             return fragment

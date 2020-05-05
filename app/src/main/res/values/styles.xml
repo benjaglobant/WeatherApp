@@ -73,4 +73,12 @@
         <item name="android:textColor">@color/light_gray_color</item>
     </style>
 
+    <style name="style_text_view_fragment_title">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/dark_green_color</item>
+        <item name="background">@color/light_green_color</item>
+        <item name="android:textSize">@dimen/text_size_fragment_title</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
 </resources>

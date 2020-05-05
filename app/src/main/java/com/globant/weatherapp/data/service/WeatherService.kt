@@ -1,6 +1,6 @@
 package com.globant.weatherapp.data.service
 
-import com.globant.weatherapp.data.entity.FiveDaysWeather
+import com.globant.weatherapp.data.entity.WeatherForecast
 import com.globant.weatherapp.data.mapper.WeatherMapper
 import com.globant.weatherapp.data.service.api.WeatherApi
 import com.globant.weatherapp.data.service.request.generator.WeatherRequestGenerator
@@ -11,7 +11,7 @@ class WeatherService {
     private val api: WeatherRequestGenerator = WeatherRequestGenerator()
     private val mapper: WeatherMapper = WeatherMapper()
 
-    fun getFiveDaysWeatherByCityId(id: Int): Observable<FiveDaysWeather> {
+    fun getFiveDaysWeatherByCityId(id: Int): Observable<WeatherForecast> {
         return Observable.create { subscriber ->
             val queryHashMap = LinkedHashMap<String, String>()
             queryHashMap[ID] = id.toString()

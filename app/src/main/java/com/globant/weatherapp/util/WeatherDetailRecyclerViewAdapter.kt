@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.globant.weatherapp.R
-import com.globant.weatherapp.data.entity.FiveDaysWeather
+import com.globant.weatherapp.data.entity.WeatherForecast
 import com.globant.weatherapp.data.entity.WeatherByDay
 import com.globant.weatherapp.util.Constants.Companion.CELCIUS
 import kotlinx.android.synthetic.main.fragment_weather_detail_item_layout.view.fragment_item_current_temp
@@ -36,7 +36,7 @@ class WeatherDetailRecyclerViewAdapter() : RecyclerView.Adapter<RecyclerView.Vie
 
     override fun getItemCount(): Int = this.weathersOfClickedDay.size
 
-    fun submitList(weathersOfClickedDay: FiveDaysWeather) {
+    fun submitList(weathersOfClickedDay: WeatherForecast) {
         this.weathersOfClickedDay = weathersOfClickedDay.list
     }
 
