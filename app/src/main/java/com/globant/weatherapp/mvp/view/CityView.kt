@@ -5,12 +5,12 @@ import android.app.Activity
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.globant.weatherapp.R
-import com.globant.weatherapp.activities.WeatherInfoActivity
-import com.globant.weatherapp.mvp.contracts.CityContracts
+import com.globant.weatherapp.activity.WeatherInfoActivity
+import com.globant.weatherapp.mvp.contract.CityContract
 import com.globant.weatherapp.mvp.view.base.ActivityView
-import com.globant.weatherapp.utils.Constants.Companion.EMPTY_STRING
+import com.globant.weatherapp.util.Constants.Companion.EMPTY_STRING
 
-class CityView(activity: Activity) : ActivityView(activity), CityContracts.View {
+class CityView(activity: Activity) : ActivityView(activity), CityContract.View {
     override fun initView(cityNameList: MutableList<String>) {
         activity?.activity_welcome_autocomplete_text_view?.
             setAdapter(ArrayAdapter(context, android.R.layout.simple_dropdown_item_1line, cityNameList))
